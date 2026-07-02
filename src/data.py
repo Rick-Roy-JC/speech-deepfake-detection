@@ -11,7 +11,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from configs.config import AUDIO
 
 # Kaggle mount point for awsaf49/asvpoof-2019-dataset
-# Kaggle mount point for awsaf49/asvpoof-2019-dataset
 def _find_kaggle_root() -> str:
     """Locate the ASVspoof LA root across Kaggle mount layouts."""
     candidates = [
@@ -79,7 +78,7 @@ class ASVspoofDataset(Dataset):
         if subset_frac is not None:
             # stratified subsample for quick smoke tests
             self.df = (
-                self.df.groupby("label", group_keys=False)
+                self.df.groupby("label", group_keys=False)[self.df.columns]
                 .apply(lambda g: g.sample(frac=subset_frac, random_state=seed))
                 .reset_index(drop=True)
             )
