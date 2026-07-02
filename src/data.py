@@ -12,7 +12,21 @@ from configs.config import AUDIO
 
 # Kaggle mount point for awsaf49/asvpoof-2019-dataset
 # Kaggle mount point for awsaf49/asvpoof-2019-dataset
-KAGGLE_ROOT = "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA"
+def _find_kaggle_root() -> str:
+    """Locate the ASVspoof LA root across Kaggle mount layouts."""
+    candidates = [
+        "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA",
+        "/kaggle/input/asvpoof-2019-dataset/LA/LA",
+        "/kaggle/input/asvpoof-2019-dataset/LA",
+    ]
+    for c in candidates:
+        if os.path.isdir(os.path.join(c, "ASVspoof2019_LA_cm_protocols")):
+            return c
+    raise FileNotFoundError(
+        "ASVspoof LA root not found. Is awsaf49/asvpoof-2019-dataset attached?"
+    )
+
+KAGGLE_ROOT = _find_kaggle_root()
 
 PROTOCOL_FILES = {
     "train": "ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.train.trn.txt",
