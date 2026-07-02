@@ -11,7 +11,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from configs.config import AUDIO
 
 # Kaggle mount point for awsaf49/asvpoof-2019-dataset
-KAGGLE_ROOT = "/kaggle/input/asvpoof-2019-dataset/LA"
+# Kaggle mount point for awsaf49/asvpoof-2019-dataset
+KAGGLE_ROOT = "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA"
 
 PROTOCOL_FILES = {
     "train": "ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.train.trn.txt",
