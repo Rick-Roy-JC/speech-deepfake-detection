@@ -1,7 +1,8 @@
 torch>=2.1.0
 torchaudio>=2.1.0
 transformers>=4.40.0
-peft>=0.10.0
+peft
+torchao>=0.16.0
 datasets>=2.18.0
 librosa>=0.10.1
 soundfile>=0.12.1
