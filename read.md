@@ -4,14 +4,11 @@ Detecting spoofed/synthetic speech on ASVspoof 2019 (Logical Access), comparing 
 classical signal-processing baseline (LFCC + CNN) against a LoRA-fine-tuned
 wav2vec2 model. Evaluated with Equal Error Rate (EER).
 
-## Results
-_(to be filled)_
-
-| Model | Frontend | Trainable Params | EER (%) |
-|-------|----------|------------------|---------|
-| CNN baseline | LFCC | TBD | TBD |
-| wav2vec2 (frozen) + head | raw waveform | TBD | TBD |
-| wav2vec2 + LoRA | raw waveform | TBD | TBD |
+| Model | Trainable params | Dev EER | Eval EER (unseen attacks) |
+|-------|------------------|---------|---------------------------|
+| LFCC-CNN baseline | ~470K | 0.27% | 21.27% |
+| wav2vec2-base frozen + head | 197K | 4.18% | 8.90% |
+| wav2vec2-base + LoRA (r=8) | 492K (0.5% of model) | **0.13%** | **1.22%** |
 
 ## Project Structure
 - `src/` — data pipeline, features, models, training, evaluation
@@ -32,6 +29,8 @@ test of generalization.
 | CNN baseline (5 epochs, T4) | LFCC (60 + Δ + ΔΔ) | 0.27% | **21.27%** |
 | wav2vec2-base frozen + head | raw waveform | 4.18% | 8.90% | 
 | wav2vec2-base + LoRA | raw waveform | TBD | TBD |
+
+![Eval results: DET curves and LoRA score distributions](results/figures/eval_results.png)
 
 **Key finding so far:** the classical-feature baseline achieves near-perfect
 performance on seen attacks but degrades ~79x on unseen attacks — it memorizes
