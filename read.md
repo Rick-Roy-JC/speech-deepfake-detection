@@ -30,7 +30,7 @@ test of generalization.
 | Model | Frontend | Dev EER | Eval EER (unseen attacks) |
 |-------|----------|---------|---------------------------|
 | CNN baseline (5 epochs, T4) | LFCC (60 + Δ + ΔΔ) | 0.27% | **21.27%** |
-| wav2vec2-base frozen + head | raw waveform | TBD | TBD |
+| wav2vec2-base frozen + head | raw waveform | 4.18% | 8.90% | 
 | wav2vec2-base + LoRA | raw waveform | TBD | TBD |
 
 **Key finding so far:** the classical-feature baseline achieves near-perfect
@@ -47,3 +47,4 @@ frontend experiments below.
 - **Repeat-padding, not zero-padding:** short clips are tiled to 4s, preserving
   vocoder artifact density rather than diluting it with silence.
 - Training runs on fp16 (T4 has no bf16 tensor core support in this config).
+"Kaggle version outputs snapshot only the current session's /kaggle/working — carry artifacts forward before saving."
