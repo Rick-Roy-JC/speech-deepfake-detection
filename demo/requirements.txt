@@ -1,0 +1,7 @@
+torch
+transformers
+peft
+torchao>=0.16.0
+librosa
+soundfile
+numpy<2.0

@@ -1,4 +1,5 @@
-# Speech Deepfake Detection: Classical DSP vs. Self-Supervised Representations
+# Speech Deepfake Detection: Classical DSP vs. Self-Supervised Representations 
+ **[🎙️ Live demo on Hugging Face Spaces](https://huggingface.co/spaces/this-is-rickroy/speech-deepfake-detection)**
 
 Detecting spoofed/synthetic speech on ASVspoof 2019 (Logical Access), comparing a
 classical signal-processing baseline (LFCC + CNN) against wav2vec2-based models,
